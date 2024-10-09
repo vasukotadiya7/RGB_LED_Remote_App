@@ -57,41 +57,41 @@ public class MainActivity extends AppCompatActivity {
         remoteData.put(23,new int[]{9098,4522,552,578,525,604,552,578,552,578,552,578,552,578,499,604,552,578,552,1709,552,1709,552,1709,525,1709,552,578,552,1709,552,1709,552,1709,525,1709,552,1709,552,1709,552,578,552,1709,525,578,552,578,552,578,552,578,552,578,552,578,552,1709,525,604,525,1709,552,1709,552,1709,552,278978});
 
 
-        Button onButton = findViewById(R.id.onButton);
-        Button offButton = findViewById(R.id.offButton);
-        Button brightnessUpButton = findViewById(R.id.brightnessUpButton);
-        Button brightnessDownButton = findViewById(R.id.brightnessDownButton);
-        Button whiteButton = findViewById(R.id.whiteButton);
-        Button flashButton = findViewById(R.id.flashButton);
-        Button strobeButton = findViewById(R.id.strobeButton);
-        Button fadeButton = findViewById(R.id.fadeButton);
-        Button smoothButton = findViewById(R.id.smoothButton);
-        Button redButton = findViewById(R.id.redButton);
-        Button greenButton = findViewById(R.id.greenButton);
-        Button blueButton = findViewById(R.id.blueButton);
-        Button r1Button = findViewById(R.id.r1Button);
-        Button r2Button = findViewById(R.id.r2Button);
-        Button r3Button = findViewById(R.id.r3Button);
-        Button r4Button = findViewById(R.id.r4Button);
-        Button g1Button = findViewById(R.id.g1Button);
-        Button g2Button = findViewById(R.id.g2Button);
-        Button g3Button = findViewById(R.id.g3Button);
-        Button g4Button = findViewById(R.id.g4Button);
-        Button b1Button = findViewById(R.id.b1Button);
-        Button b2Button = findViewById(R.id.b2Button);
-        Button b3Button = findViewById(R.id.b3Button);
-        Button b4Button = findViewById(R.id.b4Button);
+        Button onButton = findViewById(R.id.button_on);
+        Button offButton = findViewById(R.id.button_off);
+        Button brightnessUpButton = findViewById(R.id.button_brightness_up);
+        Button brightnessDownButton = findViewById(R.id.button_brightness_down);
+        Button whiteButton = findViewById(R.id.button_w);
+        Button flashButton = findViewById(R.id.button_flash);
+        Button strobeButton = findViewById(R.id.button_strobe);
+        Button fadeButton = findViewById(R.id.button_fade);
+        Button smoothButton = findViewById(R.id.button_smooth);
+        Button redButton = findViewById(R.id.button_r);
+        Button greenButton = findViewById(R.id.button_g);
+        Button blueButton = findViewById(R.id.button_b);
+        Button r1Button = findViewById(R.id.button_r1);
+        Button r2Button = findViewById(R.id.button_r2);
+        Button r3Button = findViewById(R.id.button_r3);
+        Button r4Button = findViewById(R.id.button_r4);
+        Button g1Button = findViewById(R.id.button_g1);
+        Button g2Button = findViewById(R.id.button_g2);
+        Button g3Button = findViewById(R.id.button_g3);
+        Button g4Button = findViewById(R.id.button_g4);
+        Button b1Button = findViewById(R.id.button_b1);
+        Button b2Button = findViewById(R.id.button_b2);
+        Button b3Button = findViewById(R.id.button_b3);
+        Button b4Button = findViewById(R.id.button_r4);
 
-        Button musicActivity= findViewById(R.id.musicSync);
+        Button musicActivity= findViewById(R.id.musicsync);
 
-        Button btnShortcut=findViewById(R.id.buttonShortcut);
-
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-            if (!irManager.hasIrEmitter()) {
-                Toast.makeText(this, "No IR Emitter found!", Toast.LENGTH_SHORT).show();
-                return;
-            }
-        }
+//        Button btnShortcut=findViewById(R.id.buttonShortcut);
+//
+//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+//            if (!irManager.hasIrEmitter()) {
+//                Toast.makeText(this, "No IR Emitter found!", Toast.LENGTH_SHORT).show();
+//                return;
+//            }
+//        }
 
         brightnessUpButton.setOnClickListener(v -> irManager.transmit(38000,remoteData.get(0)));
         brightnessDownButton.setOnClickListener(v -> irManager.transmit(38000,remoteData.get(1)));
@@ -120,11 +120,11 @@ public class MainActivity extends AppCompatActivity {
 
         musicActivity.setOnClickListener(view -> startActivity(new Intent(MainActivity.this,MusicActivity.class)));
 
-        btnShortcut.setOnClickListener( view -> {
-            Intent intent = new Intent("android.settings.ACTION_QUICK_SETTINGS_SETTINGS");
-            startActivity(intent);
-
-        });
+//        btnShortcut.setOnClickListener( view -> {
+//            Intent intent = new Intent("android.settings.ACTION_QUICK_SETTINGS_SETTINGS");
+//            startActivity(intent);
+//
+//        });
     }
 
 //    private void sendIrSignal(String command) {

@@ -1,143 +1,289 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="16dp"
+    android:background="#FFFFFF"
     tools:context=".MainActivity">
-
     <LinearLayout
-        android:id="@+id/linearLayout"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#F2454545"
+        android:paddingRight="10dp"
+        android:orientation="horizontal">
 
-        <GridLayout
-            android:layout_width="match_parent"
+        <!-- First row (Brightness buttons) -->
+        <LinearLayout
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:columnCount="4"
-            android:rowCount="6">
+            android:orientation="horizontal"
+            android:padding="10dp"
 
-            <Button
-                android:id="@+id/brightnessUpButton"
-                android:text="B Up" />
+            android:layout_gravity="center">
 
-            <Button
-                android:id="@+id/brightnessDownButton"
-                android:text="B Down" />
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/button_brightness_up"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginRight="10dp"
+                android:backgroundTint="@color/white"
+                android:background="@drawable/round_button"
+                android:text="☀" />
 
-            <Button
-                android:id="@+id/offButton"
-                android:text="Off" />
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/button_brightness_down"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:backgroundTint="@color/white"
+                android:background="@drawable/round_button"
+                android:text="🌙" />
+        </LinearLayout>
 
-            <Button
-                android:id="@+id/onButton"
-                android:text="On" />
+        <!-- Second row (On/Off buttons) -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
 
-            <Button
-                android:id="@+id/redButton"
-                android:text="Red" />
+            android:layout_gravity="center">
 
-            <Button
-                android:id="@+id/greenButton"
-                android:text="Green" />
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/button_off"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginRight="10dp"
+                android:backgroundTint="@color/black"
+                android:background="@drawable/round_button"
+                android:textColor="@color/white"
+                android:text="OFF" />
 
-            <Button
-                android:id="@+id/blueButton"
-                android:text="Blue" />
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/button_on"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:backgroundTint="#EA2C2C"
+                android:textColor="@color/white"
+                android:background="@drawable/round_button"
+                android:text="ON" />
+        </LinearLayout>
+    </LinearLayout>
 
-            <Button
-                android:id="@+id/whiteButton"
-                android:text="White" />
+    <!-- RGB, W buttons -->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="#F2454545"
+        android:padding="10dp"
+        android:layout_gravity="center">
 
-            <Button
-                android:id="@+id/r1Button"
-                android:text="R1" />
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/button_r"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/round_button"
+            android:backgroundTint="#D32F2F"
+            android:text="R" />
 
-            <Button
-                android:id="@+id/g1Button"
-                android:text="G1" />
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/button_g"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginRight="10dp"
+            android:backgroundTint="#388E3C"
+            android:background="@drawable/round_button"
+            android:text="G" />
 
-            <Button
-                android:id="@+id/b1Button"
-                android:text="B1" />
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/button_b"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginRight="10dp"
+            android:backgroundTint="#303F9F"
+            android:background="@drawable/round_button"
+            android:text="B" />
 
-            <Button
-                android:id="@+id/flashButton"
-                android:text="Flash" />
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/button_w"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:backgroundTint="@color/white"
+            android:textColor="@color/black"
+            android:background="@drawable/round_button"
+            android:text="W" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:background="#F2454545"
 
-            <Button
-                android:id="@+id/r2Button"
-                android:text="R2" />
+        android:orientation="horizontal">
 
-            <Button
-                android:id="@+id/g2Button"
-                android:text="G2" />
+        <!-- Color buttons -->
+        <GridLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:rowCount="5"
+            android:columnCount="3"
+            android:paddingRight="10dp"
+            android:layout_gravity="center">
 
-            <Button
-                android:id="@+id/b2Button"
-                android:text="B2" />
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/button_r1"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
+                android:backgroundTint="#E64A19"
+                android:background="@drawable/round_button" />
 
-            <Button
-                android:id="@+id/strobeButton"
-                android:text="Strobe" />
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/button_g1"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginEnd="10dp"
+                android:backgroundTint="#689F38"
+                android:background="@drawable/round_button" />
 
-            <Button
-                android:id="@+id/r3Button"
-                android:text="R3" />
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/button_b1"
+                android:layout_width="60dp"
+                android:backgroundTint="#1976D2"
+                android:layout_height="60dp"
+                android:background="@drawable/round_button" />
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/button_r2"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginBottom="10dp"
+                android:backgroundTint="#EA7629"
+                android:background="@drawable/round_button" />
 
-            <Button
-                android:id="@+id/g3Button"
-                android:text="G3" />
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/button_g2"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:backgroundTint="#31C839"
+                android:background="@drawable/round_button" />
 
-            <Button
-                android:id="@+id/b3Button"
-                android:text="B3" />
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/button_b2"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:backgroundTint="#946EDC"
+                android:background="@drawable/round_button" />
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/button_r3"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginBottom="10dp"
+                android:backgroundTint="#FFCE55"
+                android:background="@drawable/round_button" />
 
-            <Button
-                android:id="@+id/fadeButton"
-                android:text="Fade" />
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/button_g3"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:backgroundTint="#32F19E"
+                android:background="@drawable/round_button" />
 
-            <Button
-                android:id="@+id/r4Button"
-                android:text="R4" />
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/button_b3"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:backgroundTint="#D326E6"
+                android:background="@drawable/round_button" />
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/button_r4"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginBottom="10dp"
+                android:backgroundTint="#E6FB2D"
+                android:background="@drawable/round_button" />
 
-            <Button
-                android:id="@+id/g4Button"
-                android:text="G4" />
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/button_g4"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:backgroundTint="@color/teal_200"
+                android:background="@drawable/round_button" />
 
-            <Button
-                android:id="@+id/b4Button"
-                android:text="B4" />
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/button_b4"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:backgroundTint="#EE00FF"
+                android:background="@drawable/round_button" />
 
-            <Button
-                android:id="@+id/smoothButton"
-                android:text="Smooth" />
-
-
+            <!-- Add the rest of the buttons here -->
+            <!-- More colors or specific functionality -->
         </GridLayout>
 
+        <!-- Control buttons (Flash, Strobe, Fade, Smooth) -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_gravity="center">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/button_flash"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginBottom="10dp"
+                android:backgroundTint="#A1A1A1"
+
+                android:background="@drawable/round_button"
+                android:text="FLASH" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/button_strobe"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginBottom="10dp"
+                android:backgroundTint="#A1A1A1"
+
+                android:background="@drawable/round_button"
+                android:text="STROBE" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/button_fade"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginBottom="10dp"
+                android:backgroundTint="#A1A1A1"
+                android:background="@drawable/round_button"
+                android:text="FADE" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/button_smooth"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginBottom="10dp"
+                android:backgroundTint="#A1A1A1"
+
+                android:background="@drawable/round_button"
+                android:text="SMOOTH" />
+        </LinearLayout>
+
+
     </LinearLayout>
-    <Button
-        android:id="@+id/musicSync"
+    <LinearLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:text="Music Sync"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/linearLayout" />
-
-    <Button
-        android:id="@+id/buttonShortcut"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:text="Add Shortcut"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/musicSync" />
-
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:padding="10dp"
+        android:layout_height="wrap_content">
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/musicsync"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Music Sync"
+            android:backgroundTint="@color/white"
+            android:textColor="@color/black"
+            android:textSize="20dp"/>
+    </LinearLayout>
+</LinearLayout>

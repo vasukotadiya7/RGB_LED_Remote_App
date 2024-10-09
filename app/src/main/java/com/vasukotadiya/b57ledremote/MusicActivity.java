@@ -67,7 +67,7 @@ public class MusicActivity extends AppCompatActivity {
         remoteData=MainActivity.remoteData;
 //        irTransmitter=new IRTransmitter(this);
 
-        btnPitch=findViewById(R.id.pitchView);
+//        btnPitch=findViewById(R.id.pitchView);
 
         bufferSize = AudioRecord.getMinBufferSize(44100, AudioFormat.CHANNEL_IN_MONO, AudioFormat.ENCODING_PCM_16BIT);
         if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.RECORD_AUDIO) != PackageManager.PERMISSION_GRANTED) {
