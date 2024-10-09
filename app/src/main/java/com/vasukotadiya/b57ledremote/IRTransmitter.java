@@ -1,15 +1,21 @@
 package com.vasukotadiya.b57ledremote;
 
+import static android.content.ContentValues.TAG;
+
 import android.app.Application;
 import android.content.Context;
 import android.hardware.ConsumerIrManager;
 import android.os.Build;
+import android.util.Log;
 import android.widget.Toast;
+
+import java.util.Arrays;
+import java.util.HashMap;
 
 public class IRTransmitter {
 
-    private ConsumerIrManager irManager;
-    private String[] remoteData={
+    public ConsumerIrManager irManager;
+    public String[] remoteData={
             "0000 006d 0000 0022 015a 00ad 0014 0016 0015 0016 0015 0016 0015 0016 0015 0016 0015 0016 0015 0016 0015 0016 0015 0040 0015 0041 0015 0041 0015 0041 0015 0016 0015 0040 0015 0041 0015 0041 0015 0016 0015 0016 0015 0016 0014 0017 0014 0016 0015 0016 0015 0016 0015 0016 0015 0041 0015 0041 0014 0041 0015 0041 0015 0041 0015 0041 0015 0041 0014 0041 0015 3d93",
             "0000 006d 0000 0022 015a 00ad 0015 0016 0015 0016 0014 0016 0015 0016 0016 0015 0015 0016 0015 0016 0015 0016 0015 0041 0015 0040 0015 0041 0015 0041 0015 0016 0015 0041 0014 0041 0015 0041 0015 0041 0015 0016 0015 0016 0015 0016 0015 0016 0014 0016 0015 0016 0015 0016 0015 0016 0015 0041 0015 0041 0014 0041 0015 0041 0015 0041 0015 0041 0015 0040 0015 28e5",
             "0000 006d 0000 0022 015a 00ad 0014 0016 0015 0016 0015 0016 0015 0016 0015 0016 0015 0016 0015 0016 0015 0016 0015 0040 0015 0041 0015 0041 0015 0041 0015 0016 0015 0040 0015 0041 0015 0041 0015 0016 0015 0041 0014 0016 0015 0016 0015 0016 0015 0016 0015 0016 0015 0016 0015 0041 0015 0016 0014 0041 0015 0041 0016 0040 0015 0041 0015 0040 0015 0041 0016 3943",
@@ -36,9 +42,10 @@ public class IRTransmitter {
             "0000 006d 0000 0022 015a 00ac 0015 0016 0014 0017 0015 0016 0015 0016 0015 0016 0015 0016 0013 0017 0015 0016 0015 0041 0015 0041 0015 0041 0014 0041 0015 0016 0015 0041 0015 0041 0015 0041 0014 0041 0015 0041 0015 0041 0015 0016 0015 0041 0014 0016 0015 0016 0015 0016 0015 0016 0015 0016 0015 0016 0015 0041 0014 0017 0014 0041 0015 0041 0015 0041 0015 2971"
 
     };
-    private static final double PRONTO_FREQ_MULTIPLIER = 0.241246;
 
-                Context Context;
+    public static final double PRONTO_FREQ_MULTIPLIER = 0.241246;
+
+    Context Context;
     public IRTransmitter(Context context) {
         // Initialize the IR manager
         Context=context;
@@ -55,11 +62,10 @@ public class IRTransmitter {
             int[] pattern = prontoHexToIrPattern(remoteData[index]);
 
             irManager.transmit(38000, pattern);
-//            Toast.makeText(Context, "IR Signal transmitted", Toast.LENGTH_SHORT).show();
         }
     }
 
-    private int[] prontoHexToIrPattern(String prontoHex) {
+    public int[] prontoHexToIrPattern(String prontoHex) {
         String[] hexArray = prontoHex.split(" ");
 
         int frequency = (int)(1000000 / (Integer.parseInt(hexArray[1], 16) * PRONTO_FREQ_MULTIPLIER));

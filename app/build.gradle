@@ -33,8 +33,11 @@ android {
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-    implementation files('libs/TarsosDSP-Android-2.4.jar')
+//    implementation files('libs/TarsosDSP-Android-2.4.jar')
 
+    implementation files('libs/jvm-2.5.jar')
+    implementation files('libs/jvm-2.5-sources.jar')
+    implementation files('libs/jvm-2.5-javadoc.jar')
 
     implementation 'com.google.android.material:material:1.6.1'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
